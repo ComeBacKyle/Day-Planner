@@ -1,6 +1,6 @@
-let mainContainer = $(".container")
+var mainContainer = $(".container")
 
-let timeObj = [
+var timeObj = [
     {
         time: "8 am",
         twentyFour: 8,
@@ -77,23 +77,28 @@ let timeObj = [
 
 function renderTime() {
     maincontainer.empty();
-    // This adds the row, that is already empty (line 79)
-    var rowDiv = $('<div>').addClass('row time-Block');
+    // The for loop,loops through the timeObj, from that it appends each div to the row.
+    // Then appends the row to he mainContainer
+    for (i = 0; i < timeObj.length; i++) {
 
-    // This gives the time description
-    var detailDiv = $('<div>').addClass('description');
+        // This adds the row, that is already empty (line 79)
+        var rowDiv = $('<div>').addClass('row time-Block');
 
-    // This gives a text area for what will be planned for the day
-    var textDiv = $('<div>').addClass("col-md-8");
-    var textInput = $('<textarea>');
-    // This allows for the text to be placed inside the time slot
-    textDiv.append(textInput);
-    // This creates the save button, by making a div and add classes for style
-    var saveBtnDiv = $('<div>').addClass("col-md-2 saveBtn");
-    // This appends all three divs to the row
-    rowDiv.append(detailDiv).append(textDiv).append(saveBtnDiv);
+        // This gives the time description
+        var detailDiv = $('<div>').addClass('description');
 
-    mainContainer.append(rowDiv);
+        // This gives a text area for what will be planned for the day
+        var textDiv = $('<div>').addClass("col-md-8");
+        var textInput = $('<textarea>');
+        // This allows for the text to be placed inside the time slot
+        textDiv.append(textInput);
+        // This creates the save button, by making a div and add classes for style
+        var saveBtnDiv = $('<div>').addClass("col-md-2 saveBtn");
+        // This appends all three divs to the row
+        rowDiv.append(detailDiv).append(textDiv).append(saveBtnDiv);
+
+        mainContainer.append(rowDiv);
+    }
 
 }
 renderTime();
